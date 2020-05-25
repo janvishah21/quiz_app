@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block custom_css %}
+	<link rel="stylesheet" href="{% static 'css/home_style.css' %}">
+{% endblock custom_css %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        {% ifequal index|divisibleby:"2" False %}
+        	<div class="col">
+	            <div id="home-content">
+	            	<img class="side_image" src="{% static 'img/pika/'|add:image_id|add:'.png' %}">
+	            </div>
+	        </div>
+        	<div class="col">
+	            <div id="home-content">
+	            	<br><br>
+	            	{% if request.user.is_authenticated %}
+						<form action="{% url 'quiz:update_answer' question.id %}" method="post">
+						{% csrf_token %}
+							<div class="question_text">
+								<h3>{{ question.question_text }}</h3>
+							</div>
+							{% if question.choice_var %}
+								<br>
+								<div class="choices">
+									{% ifequal question.choice_set.count 2 %}
+										<div class="btn-group btn-group-toggle" data-toggle="buttons">
+									{% else %}
+										<div class="btn-group-vertical btn-group-toggle" data-toggle="buttons">
+									{% endifequal %}
+										{% for choice in question.choice_set.all %}
+											<label class="btn btn-secondary" for="choice{{ forloop.counter }}">
+												<input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" autocomplete="off" required>{{ choice.choice_text }}
+											</label>
+										{% endfor %}
+									</div>
+								</div>
+								<br>
+							{% endif %}
+							{% if question.text_var %}
+								<br>
+								<div class="answer_text">
+									<div class="form-group green-border">
+										<textarea name="answer_text" id="answer_text" value="answer_text" placeholder="Write your answer here..." class="form-control" rows="10" required></textarea>
+									</div>
+								</div>
+							{% endif %}
+							<div class="submit_buttons">
+								<label class="btn">
+									<input type="submit" class="btn btn-success" id="submit_btn" value="SUBMIT ANSWER">
+								</label>
+								<br>
+								<div class="btn-group btn-group-toggle">
+									<label class="btn">
+										{% ifnotequal index 1%}
+											<a class="btn btn-success" id="prev_btn" href="{% url 'quiz:question' index|add:-1 %}">‹‹‹ PREV</a>
+										{% endifnotequal %}
+										{% ifnotequal index count %}
+											<a class="btn btn-success" id="next_btn" href="{% url 'quiz:question' index|add:1 %}">NEXT ›››</a>
+										{% else %}
+											<a class="btn btn-success" id="finish_btn" href="{% url 'quiz:message' %}">FINISH</a>
+										{% endifnotequal%}
+									</label>
+									<!-- <input type="submit" value="update_answer"> -->
+								</div>
+							</div>
+						</form>
+					{% else %}
+						<h3>pikapika<br><br>You need to Login/Register first</h3>
+					{% endif %}
+	            </div>
+	        </div>
+        {% else %}
+        	<div class="col">
+	            <div id="home-content">
+	            	<br><br>
+	            	{% if request.user.is_authenticated %}
+						<form action="{% url 'quiz:update_answer' question.id %}" method="post">
+						{% csrf_token %}
+							<div class="question_text">
+								<h3>{{ question.question_text }}</h3>
+							</div>
+							{% if question.choice_var %}
+								<br>
+								<div class="choices">
+									{% ifequal question.choice_set.count 2 %}
+										<div class="btn-group btn-group-toggle" data-toggle="buttons">
+									{% else %}
+										<div class="btn-group-vertical btn-group-toggle" data-toggle="buttons">
+									{% endifequal %}
+										{% for choice in question.choice_set.all %}
+											<label class="btn btn-secondary" for="choice{{ forloop.counter }}">
+												<input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" autocomplete="off" required>{{ choice.choice_text }}
+											</label>
+										{% endfor %}
+									</div>
+								</div>
+								<br>
+							{% endif %}
+							{% if question.text_var %}
+								<br>
+								<div class="answer_text">
+									<div class="form-group green-border">
+										<textarea name="answer_text" id="answer_text" value="answer_text" placeholder="Write your answer here..." class="form-control" rows="10" required></textarea>
+									</div>
+								</div>
+							{% endif %}
+							<div class="submit_buttons">
+								<label class="btn">
+									<input type="submit" class="btn btn-success" id="submit_btn" value="SUBMIT ANSWER">
+								</label>
+								<br>
+								<div class="btn-group btn-group-toggle">
+									<label class="btn">
+										{% ifnotequal index 1%}
+											<a class="btn btn-success" id="prev_btn" href="{% url 'quiz:question' index|add:-1 %}">‹‹‹ PREV</a>
+										{% endifnotequal %}
+										{% ifnotequal index count %}
+											<a class="btn btn-success" id="next_btn" href="{% url 'quiz:question' index|add:1 %}">NEXT ›››</a>
+										{% else %}
+											<a class="btn btn-success" id="finish_btn" href="{% url 'quiz:message' %}">FINISH</a>
+										{% endifnotequal%}
+									</label>
+									<!-- <input type="submit" value="update_answer"> -->
+								</div>
+							</div>
+						</form>
+					{% else %}
+						<h3>pikapika<br><br>You need to Login/Register first</h3>
+					{% endif %}
+	            </div>
+	        </div>
+	        <div class="col">
+	            <div id="home-content">
+	            	<img class="side_image" src="{% static 'img/pika/'|add:image_id|add:'.png' %}">
+	            </div>
+	        </div>
+        {% endifequal %}
+    </div>
+</div>
+{% endblock content %}

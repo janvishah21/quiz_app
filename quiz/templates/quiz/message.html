@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block custom_css %}
+	<link rel="stylesheet" href="{% static 'css/home_style.css' %}">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	{% block additional_styles %}
+		<style>
+			html {
+				background-image: url('{% static 'img/background_2.jpg' %}');
+				background-size: cover;
+			}
+			body{
+				background: rgba(0, 0, 0, 0.7);
+			}
+		</style>
+	{% endblock %}
+{% endblock custom_css %}
+{% block content %}
+<div class="container" id="container_1">
+	<br><br>
+	<div class="row">
+        <div class="col">
+            <div id="home-content">
+            	<img class="side_image" src="{% static 'img/pika/0.png' %}" style="margin-top: -100px;">
+            	<p style="text-align: left;">pikapika, I hope you had a great time...if you want to, you can make quiz like this for him...btw he has a message for you...do read it when you are free...he has a kind of surprise for you as well...but is not sure whether you will like it or not...he was very dedicated while making it happen...do ask him, I don't think he will mention it in his message...and please, sort out everything asap betn you two...click <a id="hidden_message_btn_1">here</a> to read his message...</p>
+            </div>
+        </div>
+        <div class="col">
+            <div id="home-content">
+            	<div id="hidden_message" style="display:none;">
+            		<p>Hey {{ request.user.first_name }}, I will not take much time...do you remember the first time we met...woh 16 min ka walk...right handed, lack of confidence, flow person, dedicated but not smart...yeh meri us din ki predictions thi...but what I really liked about you was your smile :)<br>I always imagine you with that smile on your face and felt really happy...but kafi dino se observe kar rha hu...tu kafi udaas rehti hai, may be coz of personal issues or something else...tere technical problems ko dekhke hi hasi aati hai kafi...haan, difficult hota hai yeh sab...<br>I know things are not going the way they were supposed to be...I will always regret for what I did to you...tu kabhi sochti hogi ki why someone is so much serious abt his sister, I have an answer for that...but now I have accepted somethings...thoda time laga uske liye...yes, I saw and ignored your messages, sorry for that...par fir mujhse rha nhi gya...but I feel like happy brother jab tu khush rahe...kafi baate karni thi tujhse...but behes hi chalti rhi...I just wanted to get that smile back on your face...isiliye yeh ek small try...its not like I do it for everyone, quiz bnane ka literally koi experience nhi hai mujhe, aisehi idea aayi aur bna diya...but things change when they are for the special ones...I enjoyed developing it...utna achha nhi hai par time nhi tha utna...you can still edit your responses...click <a href="{% url 'quiz:reviews' %}" style="color: #c46;font-weight: bold;">HERE</a> for submitting your reviews...itni mehnat par kuchh words toh bante hai yrrr...sorry and thank you for everything...aur haan, is app ka main purpose bhul mat jana...khush rha kar humesha aur us smile ko humesha rakhna apne paas, I will always be there for you...and always stay happy :)<h6 style="text-align: right;">- Pratik</h6></p>
+          		</div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#hidden_message_btn_1').click(function(){
+			$('#hidden_message').slideToggle();
+		});
+	});
+</script>
+{% endblock content %}
