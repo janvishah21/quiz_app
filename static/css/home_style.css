@@ -28,18 +28,18 @@ a:hover{
 	font-weight: bold;
 }
 
-#home-content{
+.home-content{
     text-align: center;
     padding-bottom: 5%;
     padding-top: 5%;
 }
 
-#home-content p{
+.home-content p{
 	font-weight: bold;
 	font-size: 16px;
 }
 
-#home-content img{
+.home-content img{
 	display:block;
     margin:auto;
 }
@@ -50,11 +50,11 @@ a:hover{
 }
 
 .col{
-	vertical-align: center;
+	text-align: center;
 }
 
 .container{
-	
+
 }
 
 .side_image{
@@ -119,16 +119,16 @@ a:hover{
 	width: 150px;
 }
 
-#hidden_message_btn_1{
+#hidden_message_btn{
 	background-color: none;
 	border: 0;
 	color: #ffff77;
 }
 
-#hidden_message p{
+.hidden_message p{
 	text-align: left;
 	font-weight: normal;
-	font-size: 13px;
+	font-size: 12px;
 	font-family: Verdana,Geneva,sans-serif;
 }
 

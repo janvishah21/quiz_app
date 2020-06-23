@@ -37,22 +37,21 @@
 	            		<br><br><br>
 			        	<h1>pikapika {{ request.user.first_name }} !!!</h1>
 			        	<br><br>
-			        	<h3 style="line-height: 1.8;">Now, let's straight get into an instruction manual I have built for you... hope you will have a great time here... </h3>
+			        	<h3 style="line-height: 1.8;">Now, let's straight get into an instruction manual I have built for you XD... hope you will have a great time here... </h3>
 			        	<br>
 			        	<hr>
 		            	<a class="btn btn-success" id="green_light" href="{% url 'quiz:index' %}">LET'S GET STARTED !</a>
 		            {% else %}
+		                <br><br>
 			        	<h1>pikapika !!!</h1>
 			        	<br><br>
 			        	<h2>I assume I have no need to introduce myself...</h2>
 			        	<br>
-			        	<h3 style="line-height: 1.3;">WELCOME TO OUR QUIZ APP, I think you already know who built this... my MASTER... and I am an instructor here... I will be with you throughout... but first, you need to LOGIN/REGISTER...</h3>
+			        	<h3 style="line-height: 1.3;">WELCOME TO OUR QUIZ APP... I am an instructor here... I will be with you throughout... but first, you need to LOGIN/REGISTER...</h3>
 			        	<br>
 			        	<hr>
 			        	<a class="btn btn-success" id="green_light" href="{% url 'users:login' %}">LET'S GET LOGGED IN !</a>
 		            {% endif %}
-	                
-		            
 	            </div>
 	        </div>
 	    </div>

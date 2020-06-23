@@ -31,5 +31,4 @@ class Review(models.Model):
 	rating = models.IntegerField(default=5)
 	review_text = models.CharField(max_length=2000)
 	pika_exp = models.CharField(max_length=2000)
-	remarks = models.CharField(max_length=2000)
 	time = models.DateTimeField('response time')

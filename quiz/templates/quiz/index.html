@@ -16,12 +16,14 @@
             	<ul style="text-align:left;font-size: 12px;color: yellow;">
             		<li>Please make sure that your option is highlighted while pressing submit button otherwise response won't be recorded</li>
             		<li>You can submit your answer multiple times, even after finishing the quiz, each time it will get overwritten</li>
-            		<li>Like always if any technical issue arises, then contact him</li>
+            		<li>Like always if any technical issue arises, then contact administrator</li>
+            		<li>Of course you can skip question if you want to...</li>
             	</ul>
-            	<p>There are {{ count }} questions in total... all of them are just for fun... no need to think a lot... some questions are picking a choice and for some, you have to write an answer... there is no time limit... all you need to have is a fresh mind... so, just get relaxed and... ohh, I have a special instruction from my MASTER to tell you, please, click <a id="hidden_instruction_btn">here</a> <div id="hidden_instruction" style="display:none"><h4>Just be Yourself :)</h4>and now you can proceed... </div></p>
+            	<p style="font-weight:bold;">There are {{ count }} questions in total... all of them are just for fun... no need to think a lot... some questions are picking a choice and for some, you have to write an answer... there is no time limit... take your time... all you need to have is a fresh mind... so, just get relaxed...</p>
             	<hr>
                 {% if request.user.is_authenticated %}
 					<a class="btn btn-success" id="green_light" href="{% url 'quiz:question' 1 %}">LET'S BEGIN !</a>
+					<!--<a class="btn btn-success" id="green_light" href="{% url 'home' %}">YOU ARE TEMPORARILY BLOCKED !</a>-->
 				{% else %}
 					<h3>pikapika<br><br>You need to Login/Register first</h3>
 				{% endif %}
