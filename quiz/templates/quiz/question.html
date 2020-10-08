@@ -20,7 +20,7 @@
 						<form action="{% url 'quiz:update_answer' question.id %}" method="post">
 						{% csrf_token %}
 							<div class="question_text">
-								<h3>{{ question.question_text }}</h3>
+								<h4>{{ question.question_text }}</h4>
 							</div>
 							{% if question.choice_var %}
 								<br>
@@ -80,7 +80,7 @@
 						<form action="{% url 'quiz:update_answer' question.id %}" method="post">
 						{% csrf_token %}
 							<div class="question_text">
-								<h3>{{ question.question_text }}</h3>
+								<h4>{{ question.question_text }}</h4>
 							</div>
 							{% if question.choice_var %}
 								<br>

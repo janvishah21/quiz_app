@@ -57,7 +57,6 @@ def reviews(request):
 		review.rating = request.POST['rating']
 		review.review_text = request.POST['review_text']
 		review.pika_exp = request.POST['pika_exp']
-		review.remarks = request.POST['remarks']
 		review.save()
 		messages.success(request, 'Thank you for your reviews !', extra_tags='alert alert-success alert-dismissible fade show')
 		return redirect('home')
