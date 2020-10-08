@@ -32,3 +32,8 @@ python3 manage.py createsuperuser
 ```
 
 As a admin, you need to add questions manually by visiting http://127.0.0.1:8000/admin and logging in. When hosted, users will visit given url, log/register in and will submit their answers.
+
+## License
+MIT License
+
+Copyright (c) 2020 Janvi Shah
